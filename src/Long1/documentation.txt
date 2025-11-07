@@ -1,0 +1,22 @@
+1. To read text from a file, I used a Scanner object. I read all lines from
+the file into an ArrayList object, then I used the Random class's nextInt()
+function (passing the ArrayList's size as an upper bound) to select a random
+index from the list.
+
+2. To create the encryption key, I created an ArrayList containing each letter
+of the alphabet, then created a clone of it with ArrayList.clone(), shuffling
+the clone with Collections.shuffle(). I then compared the two arrays and
+created a HashMap<Character, Character>, with the inorder alphabet acting as
+the keys, and the shuffled alphabet as the values. This HashMap acts as the
+conversion key, mapping correct letters to encrypted ones.
+
+3. To keep track of the user's guesses, I simply kept a String in my
+CryptogramModel class to remember them: It starts out as a mostly empty String
+copy of the input text (of the same size), with spaces where all letters
+should be. I then insert guesses into the String directly as play continues.
+Keeping the guess remembered means the String does not need to be
+re-generated each guess.
+
+4. Since my program keeps track of the full current user guess, I have my
+program remember the correct input String, and compare the two after every
+guess. If they are equal, the user has successfully completed the puzzle.
